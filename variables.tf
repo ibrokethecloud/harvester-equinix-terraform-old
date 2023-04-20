@@ -3,7 +3,7 @@ variable "harvester_version" {
 }
 
 variable "node_count" {
-  default = "2"
+  default = "1"
 }
 
 variable "project_name" {
@@ -19,15 +19,15 @@ variable "billing_cylce" {
 }
 
 variable "metro" {
-  default = "SG"
+  default = "DA"
 }
 
 variable "facility" {
-  default = "sg1"
+  default = "da11"
 }
 
 variable "ipxe_script" {
-  default = "https://raw.githubusercontent.com/rancherlabs/harvester-equinix-terraform/ipxe/ipxe-"
+  default = "https://raw.githubusercontent.com/ibrokethecloud/harvester-equinix-terraform/v1.1.2-changes/ipxe/ipxe-"
 }
 
 variable "hostname_prefix" {

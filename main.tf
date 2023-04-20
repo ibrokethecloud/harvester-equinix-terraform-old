@@ -25,7 +25,7 @@ resource "equinix_metal_device" "seed" {
   operating_system = "custom_ipxe"
   billing_cycle    = var.billing_cylce
   project_id       = data.equinix_metal_project.project.project_id
-  ipxe_script_url  = "${var.ipxe_script}${element(split("v", var.harvester_version), 1)}"
+  ipxe_script_url  = "https://raw.githubusercontent.com/ibrokethecloud/custom_pxe/master/v1.2.0-preview"
   always_pxe       = "false"
   user_data        = templatefile("${path.module}/create.tpl", { version = var.harvester_version, password = random_password.password.result, token = random_password.token.result, vip = equinix_metal_reserved_ip_block.harvester_vip.network, hostname_prefix = var.hostname_prefix, ssh_key = var.ssh_key, count = "1", cluster_registration_url = var.rancher_api_url != "" ? rancher2_cluster.rancher_cluster[0].cluster_registration_token[0].manifest_url : "" })
 }
